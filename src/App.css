@@ -20,14 +20,25 @@ body {
   height: 100vh;
   min-height: 100vh;
   color: #fff !important;
-  cursor: url(./Assets/Images/cursor.png),auto !important;
+  /* cursor: none; */
+
+}
+
+.custom-cursor {
+  cursor: url(./Assets/Images/cursor.png), auto !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 1000;
+
 }
 
 body::after {
   width: 90%;
   border-left: 1px solid rgba(255, 255, 255, 0.22);
   border-right: 1px solid rgba(255, 255, 255, 0.22);
-  height: 300vh;
+  height: 500vh;
   content: '';
   position: absolute;
   top: 0;
@@ -40,7 +51,7 @@ body::before {
   width: 30%;
   border-left: 1px solid rgba(255, 255, 255, 0.22);
   border-right: 1px solid rgba(255, 255, 255, 0.22);
-  height: 300vh;
+  height: 500vh;
   content: '';
   position: absolute;
   top: 0;
@@ -87,7 +98,7 @@ h6 {
   font-family: para !important;
   text-transform: capitalize !important;
   margin: 0px 20px !important;
-  padding: 0px 5px !important;
+  padding: 5px 15px !important;
   border: 2px solid transparent;
 }
 
@@ -102,11 +113,13 @@ h6 {
   font-family: para !important;
   text-transform: capitalize !important;
   margin: 0px 20px !important;
-  padding: 0px 5px !important;
+  padding: 5px 15px !important;
 }
-.navs{
+
+.navs {
   border-bottom: 1px solid rgba(255, 255, 255, 0.22);
 }
+
 .resume-btn {
 
   border-radius: 3.68px;
@@ -147,7 +160,8 @@ h6 {
   left: 0;
   cursor: pointer;
 }
-.text-main{
+
+.text-main {
   position: fixed;
   display: flex;
   align-items: center;
@@ -155,6 +169,7 @@ h6 {
   top: 60px;
   width: 100%;
 }
+
 .inner-con {
   width: 10%;
   height: 100vh;
@@ -173,18 +188,21 @@ h6 {
   font-style: normal;
   font-weight: 400;
 }
-.inner-con h3 img{
+
+.inner-con h3 img {
   width: 60px;
   height: 60px;
   object-fit: contain;
 }
-.inner-con p{
+
+.inner-con p {
   color: #FFF;
-font-size: 25px;
-font-style: normal;
-font-weight: 400;
-line-height: 168.624%; /* 42.156px */
-font-variant: small-caps;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 168.624%;
+  /* 42.156px */
+  font-variant: small-caps;
 }
 
 .inner-con span {
@@ -194,7 +212,8 @@ font-variant: small-caps;
   font-weight: 400;
   position: relative;
 }
-.inner-con span img{
+
+.inner-con span img {
   content: '';
   position: absolute;
   /* background-image: url(./Assets/Images/vinith-svg.png); */
@@ -204,7 +223,8 @@ font-variant: small-caps;
   background-repeat: no-repeat;
   height: 100%;
 }
-.main-img{
+
+.main-img {
   width: 100%;
   height: 100vh;
   display: flex;
@@ -213,13 +233,127 @@ font-variant: small-caps;
   position: sticky;
   top: 60px;
 }
-.main-img img{
+
+.main-img img {
   width: 100%;
   height: 70vh;
   object-fit: contain;
-  transition: 'width 1s' 
+  transition: 'width 1s'
 }
-.full-main{
+
+.full-main {
   position: relative;
   height: 300vh;
 }
+
+.scroll-down-btn {
+  position: fixed;
+  right: -88%;
+  top: 50%;
+  width: 100%;
+  height: 100vh;
+}
+
+.scroll-down-btn button {
+  transform: rotate(90deg);
+  font-family: axioz;
+  font-size: 12px;
+  padding: 3px 9px;
+  background-color: #fff;
+  opacity: 0.8;
+}
+
+.scroll-down-btn button img {
+  transform: rotate(-90deg);
+  margin: 0px 13px;
+}
+
+.inner-con p img {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.inner-con p img::after {
+  content: 'fertyuty5ety6h5';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  background-image: url(./Assets/Images/tea-smoke-1.svg);
+  background-size: cover;
+  background-position: center;
+}
+
+/* ============about============ */
+.about-con {
+  position: relative;
+  height: auto;
+}
+
+.section-titl-right {
+  width: 90%;
+  text-align: right;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+
+
+.sec-titl{
+  position: relative;
+  width: fit-content;
+  object-fit: contain;
+}
+.sec-titl h2{
+  position: relative;
+  font-size: 50px;
+
+}
+.sec-titl span{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.monkey{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.monkey img{
+  position: relative;
+}
+.monkey span{
+  position: absolute;
+  top: 29%;
+  left: 40%;
+  transform: translate(-50%,-50%);
+}
+.eye{
+  display: flex;
+  align-items: center;
+  width: 70px;
+  justify-content: space-between;
+}
+.left-eye,.right-eye{
+  /* background-color: #0E0D10; */
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.eyes{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background-color: #220823;
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+}
+

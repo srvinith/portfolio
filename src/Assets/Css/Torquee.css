@@ -1,0 +1,23 @@
+.looping-slider {
+    overflow: hidden;
+  }
+  
+  .looping-content {
+    display: inline-block;
+    white-space: nowrap;
+    animation: loopingAnimation linear infinite;
+    transition: 5s;
+  }
+  .looping-content span img{
+    padding: 0px 20px;
+  }
+  
+  @keyframes loopingAnimation {
+    from {
+      transform: translateX(0%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  

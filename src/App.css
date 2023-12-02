@@ -17,7 +17,7 @@
 body {
   background: #0E0D10 !important;
   position: relative;
-  height: 100vh;
+  height: auto;
   min-height: 100vh;
   color: #fff !important;
   /* cursor: none; */
@@ -38,7 +38,7 @@ body::after {
   width: 90%;
   border-left: 1px solid rgba(255, 255, 255, 0.22);
   border-right: 1px solid rgba(255, 255, 255, 0.22);
-  height: 500vh;
+  height: 800vh;
   content: '';
   position: absolute;
   top: 0;
@@ -51,7 +51,7 @@ body::before {
   width: 30%;
   border-left: 1px solid rgba(255, 255, 255, 0.22);
   border-right: 1px solid rgba(255, 255, 255, 0.22);
-  height: 500vh;
+  height: 800vh;
   content: '';
   position: absolute;
   top: 0;
@@ -76,6 +76,7 @@ h6 {
 
 .header-con {
   position: relative;
+ 
 }
 
 .header-con::after {
@@ -102,8 +103,19 @@ h6 {
   border: 2px solid transparent;
 }
 
-.nav-links:hover,
-.active {
+.nav-links:hover {
+  border-bottom: 2px solid #fff;
+  border-left: 2px solid #fff;
+  border-right: 2px solid #fff;
+  border-radius: 50%;
+  font-size: 20px !important;
+  color: #fff !important;
+  font-family: para !important;
+  text-transform: capitalize !important;
+  margin: 0px 20px !important;
+  padding: 5px 15px !important;
+}
+.active{
   border-bottom: 2px solid #fff;
   border-left: 2px solid #fff;
   border-right: 2px solid #fff;
@@ -118,6 +130,7 @@ h6 {
 
 .navs {
   border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+  
 }
 
 .resume-btn {
@@ -303,57 +316,163 @@ h6 {
 
 
 
-.sec-titl{
+.sec-titl {
   position: relative;
   width: fit-content;
   object-fit: contain;
 }
-.sec-titl h2{
+
+.sec-titl h2 {
   position: relative;
   font-size: 50px;
 
 }
-.sec-titl span{
+
+.sec-titl span {
   position: absolute;
   top: 0;
   left: 0;
 }
-.monkey{
+
+.monkey {
   position: relative;
   width: 100%;
   height: 100%;
 }
-.monkey img{
+
+.monkey img {
   position: relative;
 }
-.monkey span{
+
+.monkey span {
   position: absolute;
-  top: 29%;
+  top: 23%;
   left: 40%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
 }
-.eye{
+
+.eye {
   display: flex;
   align-items: center;
   width: 70px;
   justify-content: space-between;
 }
-.left-eye,.right-eye{
-  /* background-color: #0E0D10; */
+
+.left-eye,
+.right-eye {
+  background-color: #fff;
   width: 25px;
   height: 25px;
   border-radius: 100%;
   overflow: hidden;
   position: relative;
+  cursor: none;
 }
-.eyes{
+
+.eyes {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   background-color: #220823;
   width: 10px;
   height: 10px;
   border-radius: 100%;
+  transition: transform 0.1s ease-out;
 }
 
+.monkey {
+  border-right: 2px dotted #ccc !important;
+}
+
+.monkey::after {
+  position: absolute;
+  top: -10%;
+  right: -10%;
+  content: '';
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+  border-radius: 646.64px;
+  opacity: 0.4;
+  background: radial-gradient(70.71% 70.71% at 50% 50%, rgba(246, 190, 255, 0.50) 0%, rgba(0, 0, 0, 0.00) 66%);
+}
+
+.monkey::before {
+  position: absolute;
+  bottom: -10%;
+  right: -10%;
+  content: '';
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+  border-radius: 646.64px;
+  opacity: 0.4;
+  background: radial-gradient(70.71% 70.71% at 50% 50%, rgba(246, 190, 255, 0.50) 0%, rgba(0, 0, 0, 0.00) 66%);
+}
+
+.about-text {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 218.6%;
+  font-variant: small-caps;
+  width: 80%;
+  margin: 0 auto;
+}
+
+/* ===============work con */
+
+.work-con {
+  position: relative;
+  height: auto;
+  margin: 100px auto;
+}
+
+.section-titl-left {
+  width: 90%;
+  text-align: left;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: 40% auto;
+}
+
+.second-title h2 {
+  color: #F6BEFF;
+  text-align: left;
+  font-family: axioz;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.work-desc {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 218.624%;
+  font-variant: small-caps;
+}
+.torquee{
+  margin: 30px 0px;
+}
+.torquee-con{
+  background-color: #3C3040;
+  width: 99%;
+  height: 100px;
+  margin-bottom: 100px;
+  transform: rotate(-3deg);
+  display: flex;
+  align-items: center;
+  padding: 0px 10px;
+}
+.torquee-con span{
+  font-family: axioz;
+  font-size: 40px;
+}
+.text-stock{
+  -webkit-text-stroke: 1px #F6BEFF;
+  color: #3C3040;
+}

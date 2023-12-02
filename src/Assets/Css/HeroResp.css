@@ -34,11 +34,6 @@
   font-variant: small-caps;
 }
 
-.inner-con p img {
-  width: 20px;
-  height: 20px;
-  object-fit: contain;
-}
 
 .inner-con span {
   color: #F6BEFF;
@@ -67,7 +62,7 @@
   align-items: center;
   justify-content: center;
   position: sticky;
- 
+
 }
 
 .main-img img {
@@ -75,4 +70,35 @@
   height: 70vh !important;
   object-fit: contain;
   transition: 'width 1s'
+}
+
+.coffee-anim img {
+  width: 30px !important;
+  height: 30px !important;
+  position: relative !important;
+}
+
+.coffee {
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  object-fit: contain;
+  background-color: transparent;
+  background-blend-mode:screen;
+}
+
+.left-smoke {
+  width: 2px !important;
+  height: 1px !important;
+  position: absolute;
+  top: -200px;
+  left: 0;
+}
+
+.right-smoke {
+  width: 4px !important;
+  height: 10px !important;
+  display: flex;
+  align-items: self-start;
+  justify-content: flex-end;
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef,useState } from 'react';
+import React, { useEffect, useRef} from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -65,30 +65,25 @@ const Hero = () => {
     });
   }, [innerHeight]);
 
-  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
-
-  const handleMouseMove = (event) => {
-    setCursorPosition({ x: event.clientX, y: event.clientY });
-  };
-
+  // ============
   useEffect(() => {
-    const eye = document.getElementById('eye'); // Replace with your eye element's ID
-    const eyeRect = eye.getBoundingClientRect();
+    const handleMouseMove = (e) => {
+      const pupils = document.querySelectorAll('.eyess .eyes');
 
-    const eyeCenterX = eyeRect.left + eyeRect.width / 2;
-    const eyeCenterY = eyeRect.top + eyeRect.height / 2;
+      pupils.forEach((pupil) => {
+        const rect = pupil.getBoundingClientRect();
+        const x = (e.pageX - rect.left) / 30 + 'px';
+        const y = (e.pageY - rect.top) / 30 + 'px';
+        pupil.style.transform = 'translate3d(' + x + ',' + y + ', 0px)';
+      });
+    };
 
-    const deltaX = cursorPosition.x - eyeCenterX;
-    const deltaY = cursorPosition.y - eyeCenterY;
+    window.addEventListener('mousemove', handleMouseMove);
 
-    const angle = Math.atan2(deltaY, deltaX);
-    const distance = Math.min(eyeRect.width / 4, eyeRect.height / 4);
-
-    const eyeX = eyeCenterX + distance * Math.cos(angle);
-    const eyeY = eyeCenterY + distance * Math.sin(angle);
-
-    eye.style.transform = `translate(${eyeX - eyeRect.left}px, ${eyeY - eyeRect.top}px)`;
-  }, [cursorPosition]);
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
 
   return (
     <>
@@ -125,9 +120,9 @@ const Hero = () => {
               <div className="col-md-5">
                 <div className="monkey">
                   <img src={Monkey} alt="" className='img-fluid' />
-                  <span className='eye'>
+                  <span className='eyee'>
 
-                    <div className="eyess left-eye" onMouseMove={handleMouseMove}>
+                    <div className="eyess left-eye">
                       <div className="eyes" id='eye'></div>
                     </div>
                     <div className="eyess right-eye">

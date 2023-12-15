@@ -1,6 +1,11 @@
-import React, { useEffect, useRef} from 'react';
+import React, { useEffect, useRef,useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Projects from './Projects-data'
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import {Link} from 'react-router-dom'
 
 
 import Svg from '../Assets/Images/vinith-svg.png'
@@ -10,8 +15,17 @@ import '../Assets/Css/HeroResp.css'
 import Scrolldownimg from '../Assets/Images/scrolldown-img.svg'
 import sectionsvg from '../Assets/Images/section-title-svg.svg'
 import Monkey from '../Assets/Images/monkey-group.png'
-import Pscastel from '../Assets/Images/ps-castel.png'
+import chainLeft from '../Assets/Images/chain-left-group.png'
+import chainRight from '../Assets/Images/chain-right-group.png'
+import scrow from '../Assets/Images/scrow.svg'
+import Handocon from '../Assets/Images/hand-icon.svg'
+import start from '../Assets/Images/star.svg'
+import Mail from '../Assets/Images/linkedin.svg'
+import Linkedin from '../Assets/Images/linkedin-1.svg'
+import Github from '../Assets/Images/github.svg'
+import arrow from '../Assets/Images/arrwo.svg'
 import Torquee from './Torquee';
+import BottomSlider from './Bottomslider'
 
 
 const Hero = () => {
@@ -19,6 +33,32 @@ const Hero = () => {
   const imageRef = useRef(null);
   const scrollRef = useRef(null);
   const { innerHeight } = window;
+
+
+  const [visible, setVisible] = useState(true);
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+
+  const handleScroll = () => {
+    const currentScrollPos = window.pageYOffset;
+    const isScrollingUp = prevScrollPos > currentScrollPos;
+
+    setPrevScrollPos(currentScrollPos);
+
+    if (isScrollingUp || currentScrollPos < 10) {
+      setVisible(true);
+    } else {
+      setVisible(false);
+    }
+  };
+
+  useEffect(() => {
+    // Add event listener when the component mounts
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [prevScrollPos]);
 
 
 
@@ -88,8 +128,32 @@ const Hero = () => {
   return (
     <>
 
-      <div className="container">
-        <div className="full-main">
+<div className='navbar header-con' style={{display: visible ? 'block' : 'none' }}>
+         <Navbar expand="lg" className="navs" fixed='top' data-bs-theme="dark" variant='dark'>
+      <Container>
+        <Navbar.Brand href="#"><h1>Logo</h1></Navbar.Brand>
+        <Navbar.Toggle aria-controls="navbarScroll" />
+        <Navbar.Collapse id="navbarScroll">
+          <Nav
+            className="me-auto my-2 mx-4 my-lg-0"
+            style={{ maxHeight: '100px' }}
+            navbarScroll
+          >
+            <Nav.Link  className='nav-links' as={Link} exact to="#home" activeClassName="active">Home</Nav.Link>
+            <Nav.Link className='nav-links' as={Link} to="#about">About Me</Nav.Link>
+            <Nav.Link className='nav-links' as={Link} to="#work">Works</Nav.Link>
+            <Nav.Link className='nav-links' as={Link} to="#contact">Contact</Nav.Link>
+           
+          </Nav>
+          <div className='resume-btn'>Resume</div>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+
+    </div>
+
+      <div className="container" >
+        <div className="full-main" id='home'>
           <div className="scroll-down-btn" ref={scrollRef}>
             <button>Scroll Down <img src={Scrolldownimg} alt="" /></button>
           </div>
@@ -102,12 +166,12 @@ const Hero = () => {
                 Front end Developer</h3>
 
               <p>I'm all about jamming out with code to create funky, interactive experiences. When I'm not busting out cool stuff, I'm chatting and scribbling about these far- <br />out projects. <span className="coffee-anim">
-              <img src={Coffee} alt="" className='coffee' />
+                <img src={Coffee} alt="" className='coffee' />
               </span></p>
             </div>
           </div>
         </div>
-        <div className="about-con">
+        <div className="about-con" id='about'>
           <div className="container">
             <div className="section-titl-right my-3">
               <div className="sec-titl">
@@ -141,37 +205,126 @@ const Hero = () => {
             </div>
           </div>
         </div>
-        <div className="work-con">
+        <div className="work-con" id='work'>
           <div className="container">
             <div className="section-titl-left my-3">
-              <div className="sec-titl">
+              <div className="sec-titl project-titl">
                 <h2>Work</h2>
                 <span><img src={sectionsvg} alt="" className='img-fluid' /></span>
               </div>
-
             </div>
-
-            <div className="row my-4">
-              <div className="col-md-5">
-                <img src={Pscastel} alt="" className='img-fluid'/>
-              </div>
-              <div className="col-md-7">
-                <div className="second-title">
-                  <h2>PS Castel</h2>
-                  <p className='work-desc'>
-                  I'm  a frontend web developer fueled by a passion for crafting funky and interactive digital experiences. I thrive on translating ideas into captivating visuals and seamless user interactions using a blend of HTML, CSS, and JavaScript wizardry.   My goal? To sprinkle a touch of excitement and creativity into every project, 
-                  </p>
+            {
+              Projects.map((projectdata, i) =>
+                <div className="row my-4 main-project-con" key={i}>
+                  <div className="col-md-5">
+                    <img src={projectdata.img} alt="" className='work-img img-fluid' />
+                  </div>
+                  <div className="col-md-7">
+                    <div className="second-title">
+                      <h2>{projectdata.Name}</h2>
+                      <p className='work-desc'>
+                        {projectdata.desc}
+                      </p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
+              )
+            }
+
           </div>
         </div>
       </div>
       <div className="torquee">
-          <div className="torquee-con">
-            <Torquee />
+        <div className="torquee-con">
+          <Torquee />
+        </div>
+        <div className="container">
+          <div className="chain-con">
+            <img src={chainLeft} alt="" className='img-fluid img-1' />
+            <img src={chainRight} alt="" className='img-fluid img-2' />
+          </div>
+          <div className="work-box-con">
+            <div className="scrow">
+              <img src={scrow} alt="scrow" />
+              <img src={scrow} alt="scrow" />
+            </div>
+            <div className="list-of-skills">
+              <p>React</p>
+              <p>Redux</p>
+              <p>Tailwind Css</p>
+              <p>Saas</p>
+            </div>
+            <div className="list-of-skills1">
+              <p>Html</p>
+              <p>Css</p>
+              <p>JavaScript</p>
+            </div>
+            <div className="list-of-skills">
+              <p>Python</p>
+              <p>DJango</p>
+              <p>Bootstrap</p>
+              <p>Git</p>
+            </div>
+
           </div>
         </div>
+      </div>
+
+      <div className="about-con my-5 py-4">
+        <div className="container">
+          <center>
+            <h3>Do You think There is Lot of space in the skills set box ?</h3>
+          </center>
+          <center>
+            <h2 className='my-5 center-tex'>Stay tuned for an exciting <br /> transformation !</h2>
+          </center>
+        </div>
+
+        <div className="section-titl-right my-3" id='contact'>
+          <div className="sec-titl">
+            <h2>Contact</h2>
+            <span><img src={sectionsvg} alt="" className='img-fluid' /></span>
+          </div>
+        </div>
+
+        <div className="center-diamond">
+          <span className='work-texs'>Work</span> <br /> <span className='second-texts'>With US</span>
+        </div>
+
+        <center>
+          <h3>OR SAY HELLO <img src={Handocon} alt="" /><img src={start} alt="" /></h3>
+        </center>
+
+     <div className="container">
+     <div className="social-link">
+          <Link to='' className="linked">
+            <img src={Linkedin} alt="" /><span>Linked In</span><span><img src={arrow} alt="arrow-img" /></span>
+          </Link>
+          <Link to ='' className="mail">
+            <img src={Mail} alt="" /><span>Email</span><span><img src={arrow} alt="arrow-img" /></span>
+          </Link>
+          <Link to=''  className="github">
+            <img src={Github} alt="" /><span>Github </span><span><img src={arrow} alt="arrow-img" /></span>
+          </Link>
+        </div>
+     </div>
+
+            <div className="">
+              <BottomSlider />
+            </div>
+
+      </div>
+
+      <footer>
+        <div className="footer-line">
+          <p>Crafted by Ganesh</p>
+          <p>&copy;Copyrights 2023 Registered</p>
+        </div>
+        <center>
+          <p>Coded by</p>
+          <p className='names'>Vinith R</p>
+        </center>
+      </footer>
     </>
   )
 }

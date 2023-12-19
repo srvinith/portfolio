@@ -2,9 +2,6 @@ import React, { useEffect, useRef,useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Projects from './Projects-data'
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
 import {Link} from 'react-router-dom'
 
 
@@ -35,31 +32,7 @@ const Hero = () => {
   const { innerHeight } = window;
 
 
-  const [visible, setVisible] = useState(true);
-  const [prevScrollPos, setPrevScrollPos] = useState(0);
-
-  const handleScroll = () => {
-    const currentScrollPos = window.pageYOffset;
-    const isScrollingUp = prevScrollPos > currentScrollPos;
-
-    setPrevScrollPos(currentScrollPos);
-
-    if (isScrollingUp || currentScrollPos < 10) {
-      setVisible(true);
-    } else {
-      setVisible(false);
-    }
-  };
-
-  useEffect(() => {
-    // Add event listener when the component mounts
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [prevScrollPos]);
-
+  
 
 
   useEffect(() => {
@@ -125,32 +98,24 @@ const Hero = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const tl = gsap.timeline();
+
+    tl.from('.line span', {
+      duration: 1.8,
+      y: 100,
+      ease: 'power4.out',
+      delay: 1,
+      skewY: 7,
+      stagger: {
+        amount: 0.3,
+      },
+    });
+  }, []); 
+
   return (
     <>
 
-<div className='navbar header-con' style={{display: visible ? 'block' : 'none' }}>
-         <Navbar expand="lg" className="navs" fixed='top' data-bs-theme="dark" variant='dark'>
-      <Container>
-        <Navbar.Brand href="#"><h1>Logo</h1></Navbar.Brand>
-        <Navbar.Toggle aria-controls="navbarScroll" />
-        <Navbar.Collapse id="navbarScroll">
-          <Nav
-            className="me-auto my-2 mx-4 my-lg-0"
-            style={{ maxHeight: '100px' }}
-            navbarScroll
-          >
-            <Nav.Link  className='nav-links' as={Link} exact to="#home" activeClassName="active">Home</Nav.Link>
-            <Nav.Link className='nav-links' as={Link} to="#about">About Me</Nav.Link>
-            <Nav.Link className='nav-links' as={Link} to="#work">Works</Nav.Link>
-            <Nav.Link className='nav-links' as={Link} to="#contact">Contact</Nav.Link>
-           
-          </Nav>
-          <div className='resume-btn'>Resume</div>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
-
-    </div>
 
       <div className="container" >
         <div className="full-main" id='home'>
@@ -165,7 +130,7 @@ const Hero = () => {
               <h3>Hey, It’s <span><img src={Svg} alt="svg" /> Vinith </span> <br />
                 Front end Developer</h3>
 
-              <p>I'm all about jamming out with code to create funky, interactive experiences. When I'm not busting out cool stuff, I'm chatting and scribbling about these far- <br />out projects. <span className="coffee-anim">
+              <p >I'm all about jamming out with code to create funky, interactive experiences. When I'm not busting out cool stuff, I'm chatting and scribbling about these far- <br />out projects. <span className="coffee-anim">
                 <img src={Coffee} alt="" className='coffee' />
               </span></p>
             </div>
@@ -198,8 +163,10 @@ const Hero = () => {
               </div>
               <div className="col-md-7">
 
-                <p className='about-text'>
-                  I'm  a frontend web developer fueled by a passion for crafting funky and interactive digital experiences. I thrive on translating ideas into captivating visuals and seamless user interactions using a blend of HTML, CSS, and JavaScript wizardry.   My goal? To sprinkle a touch of excitement and creativity into every project, whether it's through snazzy animations, innovative interfaces, or out-of-the-box design concepts.  When I'm not coding up a storm, I'm often found discussing and brainstorming about these far-out projects. Sharing insights and bouncing ideas with like-minded enthusiasts fuels my creativity and keeps me inspired.
+                <p className='about-text line'>
+                <span>
+                I'm  a frontend web developer fueled by a passion for crafting funky and interactive digital experiences. I thrive on translating ideas into captivating visuals and seamless user interactions using a blend of HTML, CSS, and JavaScript wizardry. 
+                  </span>  My goal? To sprinkle a touch of excitement and creativity into every project, whether it's through snazzy animations, innovative interfaces, or out-of-the-box design concepts.  When I'm not coding up a storm, I'm often found discussing and brainstorming about these far-out projects. Sharing insights and bouncing ideas with like-minded enthusiasts fuels my creativity and keeps me inspired.
                 </p>
               </div>
             </div>
@@ -294,18 +261,18 @@ const Hero = () => {
         <center>
           <h3>OR SAY HELLO <img src={Handocon} alt="" /><img src={start} alt="" /></h3>
         </center>
-
+<a href=""></a>
      <div className="container">
      <div className="social-link">
-          <Link to='' className="linked">
+          <Link to="https://www.linkedin.com/in/vinith-r-67a62a17a/" className="linked">
             <img src={Linkedin} alt="" /><span>Linked In</span><span><img src={arrow} alt="arrow-img" /></span>
           </Link>
-          <Link to ='' className="mail">
+          <a href ='mailto:srvinith6@gmail.com' className="mail">
             <img src={Mail} alt="" /><span>Email</span><span><img src={arrow} alt="arrow-img" /></span>
-          </Link>
-          <Link to=''  className="github">
+          </a>
+          <a href="https://github.com/srvinith"  className="github">
             <img src={Github} alt="" /><span>Github </span><span><img src={arrow} alt="arrow-img" /></span>
-          </Link>
+          </a>
         </div>
      </div>
 

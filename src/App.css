@@ -38,7 +38,7 @@ body::after {
   width: 90%;
   border-left: 1px solid rgba(255, 255, 255, 0.22);
   border-right: 1px solid rgba(255, 255, 255, 0.22);
-  height: 1030vh;
+  height: 1000vh;
   content: '';
   position: absolute;
   top: 0;
@@ -51,7 +51,7 @@ body::before {
   width: 30%;
   border-left: 1px solid rgba(255, 255, 255, 0.22);
   border-right: 1px solid rgba(255, 255, 255, 0.22);
-  height: 1030vh;
+  height: 1000vh;
   content: '';
   position: absolute;
   top: 0;
@@ -104,9 +104,9 @@ h6 {
 }
 
 .nav-links:hover {
-  border-bottom: 2px solid #fff;
-  border-left: 2px solid #fff;
-  border-right: 2px solid #fff;
+  border-bottom: 2px solid #CBA5E9;
+  border-left: 2px solid #CBA5E9;
+  border-right: 2px solid #CBA5E9;
   border-radius: 50%;
   font-size: 20px !important;
   color: #fff !important;
@@ -116,10 +116,10 @@ h6 {
   padding: 5px 15px !important;
 }
 
-.active {
-  border-bottom: 2px solid #fff;
-  border-left: 2px solid #fff;
-  border-right: 2px solid #fff;
+.nav-links.active {
+  border-bottom: 2px solid #CBA5E9;
+  border-left: 2px solid #CBA5E9;
+  border-right: 2px solid #CBA5E9;
   border-radius: 50%;
   font-size: 20px !important;
   color: #fff !important;
@@ -181,7 +181,7 @@ h6 {
   align-items: center;
   justify-content: center;
   top: 60px;
-  width: 100%;
+  width: 90%;
 }
 
 .inner-con {
@@ -531,7 +531,7 @@ opacity: 0.5;
   z-index: -1;
   left: 50%;
   transform: translate(-50%);
-  width: 80%;
+  width: 70%;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -619,7 +619,7 @@ opacity: 0.5;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 90%;
+  width: 85%;
   margin: 10px auto;
   /* animation: ani-scrow 5s infinite; */
 
@@ -737,6 +737,9 @@ opacity: 0.5;
   line-height: normal;
   cursor: pointer;
 }
+.social-link a{
+  cursor: pointer;
+}
 
 .social-link span{
   font-size: 22px;
@@ -746,6 +749,7 @@ opacity: 0.5;
 }
 footer{
   border-top: 1px solid #fff;
+  z-index: 10;
 }
 .footer-line{
   display: flex;

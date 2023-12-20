@@ -202,7 +202,7 @@ const Hero = () => {
               Projects.map((projectdata, i) =>
                 <div className="row my-4 main-project-con" key={i}>
                   <div className="col-md-5">
-                    <img src={projectdata.img} alt="" className='work-img img-fluid' />
+                    <img src={projectdata.img} alt={projectdata.Name} className='work-img img-fluid' />
                   </div>
                   <div className="col-md-7">
                     <div className="second-title">
@@ -210,6 +210,7 @@ const Hero = () => {
                       <p className='work-desc'>
                         {projectdata.desc}
                       </p>
+                      <a href={projectdata.link}>Know More</a>
                     </div>
                   </div>
                 </div>

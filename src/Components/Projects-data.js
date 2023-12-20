@@ -6,7 +6,8 @@ const Projects=[
         id:1,
         img:onwords,
         Name:'Onwords',
-        desc:`I'm  a frontend web developer fueled by a passion for crafting funky and interactive digital experiences. I thrive on translating ideas into captivating visuals and seamless user interactions using a blend of HTML, CSS, and JavaScript wizardry.   My goal? To sprinkle a touch of excitement and creativity into every project, `
+        desc:`I'm  a frontend web developer fueled by a passion for crafting funky and interactive digital experiences. I thrive on translating ideas into captivating visuals and seamless user interactions using a blend of HTML, CSS, and JavaScript wizardry.   My goal? To sprinkle a touch of excitement and creativity into every project, `,
+        link:'https://onwords.in/',
     },
     {
         id:2,

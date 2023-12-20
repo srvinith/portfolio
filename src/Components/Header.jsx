@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Resume from '../Assets/resume/Vinith.pdf'
+import { HiMenuAlt2 } from "react-icons/hi";
 
 const Header = () => {
 
@@ -40,7 +41,7 @@ const Header = () => {
     <div className='header-con'  style={{display: visible ? 'block' : 'none' }}>
          <Navbar expand="lg" className="navs" fixed='top' data-bs-theme="dark" variant='dark'>
       <Container>
-        <Navbar.Brand href="#"><h1>Vinith</h1></Navbar.Brand>
+        <Navbar.Brand className='logo' href="#"><h1>Vinith</h1></Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -54,8 +55,9 @@ const Header = () => {
             <Nav.Link className={click ? "nav-links active" : "nav-links"} onClick={closeMenu} href="#contact">Contact</Nav.Link>
            
           </Nav>
-          <a className='resume-btn' href={Resume} download>Resume</a>
+          
         </Navbar.Collapse>
+        <a className='resume-btn' href={Resume} download>Resume</a>
       </Container>
     </Navbar>
 

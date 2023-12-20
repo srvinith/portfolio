@@ -4,7 +4,7 @@ import Header from './Components/Header'
 
 function App() {
   return (
-    <div className="App">
+    <div className="App custom-cursor">
       <Hero />
       <Header/>
     </div>

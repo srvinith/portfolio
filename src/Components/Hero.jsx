@@ -259,6 +259,7 @@ const Hero = () => {
                 <p>Html</p>
                 <p>Css</p>
                 <p>JavaScript</p>
+                <p>TypeScript</p>
               </div>
               <div className="list-of-skills">
                 <p>Python</p>
